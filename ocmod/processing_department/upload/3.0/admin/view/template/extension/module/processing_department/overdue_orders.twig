@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Overdue Orders</title>
+  <!-- Vue -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- Axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.5/axios.min.js" integrity="sha512-01Pe9P3mJM/4c80VuoYEGHlspKGbd9uWQe9HtdLsdTqV0CS1kz8ca44sinVEXEvlZNciMmsAjeEbm5ZxHC7yYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Ripple Effect -->
+  <script src="https://cdn.jsdelivr.net/npm/@material/ripple@14.0.0/dist/mdc.ripple.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/@material/ripple@14.0.0/dist/mdc.ripple.min.css" rel="stylesheet"/>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Toast -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" type="text/css" href="/admin/view/stylesheet/dts.css">
+</head>
+
+<body class="bg-slate-300">
+  <div id="app">
+    <Layout
+      class="w-screen h-screen" 
+      bulk-label="Process Selected"
+      :tabs="tabs" 
+      :active-tab="activeTab" 
+      :checked-orders="checkedOrders"
+      :name="'{{ warehouse['name'] }}'"
+      :loading="loading" 
+      :toggle-filter="toggleFilter"
+      :has-filter="hasFilter"
+      :logout="getRoute('common/logout', {}, true)"
+      :side-menus="sideMenus"
+      :hide-check-all="orders.length == 0"
+      @clear-filter="clearFilter"
+      @check-all="handleCheckAll"
+      @bulk-action="process()"
+    >
+      <!-- Overdue Orders -->
+      <template v-if="activeTab == 'Overdue Orders'">
+        <div class="flex flex-col gap-3 p-2">
+          <Order 
+            v-for="order in orders" 
+            :key="order.order_id" 
+            :order="order"
+            :products="order.products"
+            :checked-orders="checkedOrders"
+            :show-overdue="true"
+            @checked="handleOnCheck"
+            @confirm="process(order)"
+          ></Order>
+        </div>
+        <Nodata v-if="orders.length == 0"></Nodata>
+      </template>
+    </Layout>
+
+    <!-- Confirm modal -->
+    <ConfirmModal ref="confirmModal" :action="confirmAction"></ConfirmModal>
+
+    <!-- Filter modal -->
+    <Transition>
+      <FilterModal 
+        v-if="showFilter"
+        :filter-data="filterData"
+        @close="toggleFilter(false)"
+        @apply="handleFilter"
+      ></FilterModal>
+    </Transition>
+  </div>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/> 
+</body>
+
+<script>
+window.appConfig = {base_url: "{{ base_url }}"};
+</script>
+
+<script type="module">
+import Layout from '{{ base_url }}/extension/module/layout/main.js';
+import Order from '{{ base_url }}/extension/module/components/order.js';
+import Nodata from '{{ base_url }}/extension/module/components/no_data.js';
+import Filtermodal from '{{ base_url }}/extension/module/components/filter_modal.js';
+import Btn from '{{ base_url }}/extension/module/components/btn.js';
+import Confirmmodal from '{{ base_url }}/extension/module/components/confirm_modal.js';
+
+const { createApp, ref, onMounted, computed } = Vue;
+
+createApp({
+  components: {
+    Layout,
+    Order,
+    Nodata,
+    Filtermodal,
+    Btn,
+    Confirmmodal,
+  },
+  setup() {
+    const loading = ref(false);
+    const confirmModal = ref(null);
+    const confirmAction = ref(() => {});
+
+    const orders = ref([]);
+    const checkedOrders = ref([]);
+    
+    const totalOverdue = ref(0);
+    const totalRevert = ref(0);
+
+    const showFilter = ref(false);
+    const filterData = ref({customer: '', order_id: '', delivery_date: ''});
+
+    const activeTab = ref('Overdue Orders');
+    const tabs = computed(() => {
+      return [{label: 'Overdue Orders', event: () => {toggleTab('Overdue Orders', fetch)}, total: totalOverdue.value}];
+    });
+
+
+    const sideMenus = computed(() => {
+      return [
+        {
+          label: 'Home',
+          event: () => {
+            window.location.href = getRoute('');
+          },
+          icon: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor' class='size-8'><path d='M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z' /><path d='m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z' /></svg>",
+        },
+        {
+          label: 'Overdue Orders',
+          event: () => {
+            window.location.href = getRoute('overdue');
+          },
+          icon: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor' class='size-8'><path fill-rule='evenodd' d='M5.625 1.5H9a3.75 3.75 0 0 1 3.75 3.75v1.875c0 1.036.84 1.875 1.875 1.875H16.5a3.75 3.75 0 0 1 3.75 3.75v7.875c0 1.035-.84 1.875-1.875 1.875H5.625a1.875 1.875 0 0 1-1.875-1.875V3.375c0-1.036.84-1.875 1.875-1.875Zm5.845 17.03a.75.75 0 0 0 1.06 0l3-3a.75.75 0 1 0-1.06-1.06l-1.72 1.72V12a.75.75 0 0 0-1.5 0v4.19l-1.72-1.72a.75.75 0 0 0-1.06 1.06l3 3Z' clip-rule='evenodd'/><path d='M14.25 5.25a5.23 5.23 0 0 0-1.279-3.434 9.768 9.768 0 0 1 6.963 6.963A5.23 5.23 0 0 0 16.5 7.5h-1.875a.375.375 0 0 1-.375-.375V5.25Z'/></svg>",
+          total: totalOverdue.value,
+        },
+        {
+          label: 'Revert Orders',
+          event: () => {
+            window.location.href = getRoute('revertOrders');
+          },
+          icon: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor' class='size-8'><path fill-rule='evenodd' d='M5.625 1.5H9a3.75 3.75 0 0 1 3.75 3.75v1.875c0 1.036.84 1.875 1.875 1.875H16.5a3.75 3.75 0 0 1 3.75 3.75v7.875c0 1.035-.84 1.875-1.875 1.875H5.625a1.875 1.875 0 0 1-1.875-1.875V3.375c0-1.036.84-1.875 1.875-1.875Zm5.845 17.03a.75.75 0 0 0 1.06 0l3-3a.75.75 0 1 0-1.06-1.06l-1.72 1.72V12a.75.75 0 0 0-1.5 0v4.19l-1.72-1.72a.75.75 0 0 0-1.06 1.06l3 3Z' clip-rule='evenodd'/><path d='M14.25 5.25a5.23 5.23 0 0 0-1.279-3.434 9.768 9.768 0 0 1 6.963 6.963A5.23 5.23 0 0 0 16.5 7.5h-1.875a.375.375 0 0 1-.375-.375V5.25Z'/></svg>",
+          total: totalRevert.value,
+        }
+      ];
+    });
+
+    const toggleTab = (tab, callback=null) => {
+      activeTab.value = tab;
+      checkedOrders.value = [];
+      if (typeof callback === 'function') {
+        callback();
+      }
+    };
+
+    // Get base API route
+    const getRoute = (route='', filters={}, base=false) => {
+      if (route == '') {
+        return `/admin/index.php?route=extension/module/{{ module }}&user_token={{ user_token }}`;
+      }
+      let url = base 
+        ? `/admin/index.php?route=${route}&user_token={{ user_token }}`
+        : `/admin/index.php?route=extension/module/{{ module }}/${route}&user_token={{ user_token }}`; 
+      for (const [key, value] of Object.entries(filters)) {
+        url += `&${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+      }
+      return url;
+    }
+
+    const toggleFilter = (value) => {
+      showFilter.value = value;
+    };
+
+    const fetch = async () => {
+      loading.value = true;
+      try {
+        const { data } = await axios.get(getRoute('overdue', {return_type: 'json', ...filterData.value}));
+        orders.value = data.orders;
+
+        totalRevert.value = data.total['revert'];
+        totalOverdue.value = data.total['overdue'];
+
+      } catch (error) {
+        toast(error, 'error');
+      } finally {
+        loading.value = false;
+      }
+    };
+
+    const toast = (message, type='success') => {
+      let background = '#16a34a';
+      if (type == 'error') {
+        background = '#de2837';
+      }
+      Toastify({
+        text: message,
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true, 
+        style: {background},
+      }).showToast();
+    };
+
+    const handleFilter = () => {
+      toggleFilter(false);
+      fetch();
+    };
+
+    const clearFilter = () => {
+      for (const key in filterData.value) {
+        if (filterData.value.hasOwnProperty(key)) {
+          filterData.value[key] = ''; 
+        }
+      }
+      fetch();
+    };
+
+    const hasFilter = computed(() => {
+      return Object.keys(filterData.value).some((key) => {
+        const value = filterData.value[key];
+        return value != '';
+      });
+    });
+
+    // Check all
+    const handleCheckAll = (checked) => {
+      if (checked) {
+        checkedOrders.value = [...orders.value];
+      } else {
+        checkedOrders.value = [];
+      }
+    }
+
+    // Order on check
+    const handleOnCheck = (checked, order) => {
+      if (checked && !checkedOrders.value.find(x => x.warehouse_order_id == order.warehouse_order_id)) {
+        checkedOrders.value.push(order);
+      } else {
+        const index = checkedOrders.value.findIndex(x => x.warehouse_order_id == order.warehouse_order_id);
+        checkedOrders.value.splice(index, 1);
+      }
+    };
+
+    // Proces
+    const process = (order=null) => {
+      if (order != null) {
+        checkedOrders.value = [order];
+      }
+      const ids = checkedOrders.value.map(x => `#${x.order_id}`).join(', ');
+      confirmModal.value.open(`Start Packing ?`, `Order <b>${ids}</b> will be marked as "In Progress" status.`);
+      confirmAction.value = async () => {
+        loading.value = true;
+        try {
+          // Call db
+          const { data } = await axios.post(getRoute('markProcessing'), {
+            warehouse_order_ids: checkedOrders.value.map(x => x.warehouse_order_id),
+            order_ids: checkedOrders.value.map(x => x.order_id),
+          });
+          // Redirect to batch
+          if (data.batch_id) {
+            window.location.href = getRoute('batch', {batch_id: data.batch_id});
+            loading.value = false;
+          } else {
+            throw 'Faiiled to create batch !';
+          }
+        } catch (error) {
+          toast(error, 'error');
+        }
+      };
+    };
+
+    onMounted(() => fetch());
+
+    return {
+      sideMenus,
+      loading,
+      orders,
+      checkedOrders,
+      tabs,
+      activeTab,    
+      showFilter,
+      toggleFilter,
+      handleFilter,
+      filterData,
+      clearFilter,
+      hasFilter,
+      getRoute,
+      process,
+      handleOnCheck,
+      confirmModal,
+      confirmAction,
+      handleCheckAll,
+      totalOverdue,
+    };
+  },
+}).mount("#app");
+</script>
+</html>
+>

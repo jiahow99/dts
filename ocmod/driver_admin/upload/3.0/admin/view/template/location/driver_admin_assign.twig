@@ -1,0 +1,470 @@
+{{ header }}
+
+<style>
+  .order {
+    user-select: none; 
+  }
+  .handle {
+    padding: 10px 8px;
+  }
+  .order:hover {
+    background-color: #93c5fd;
+    transition: all .1s;
+  }
+  .order .handle {
+    width: 90%;
+    cursor: grab;
+  }
+  .order .options {
+    width: 5%;
+    cursor: pointer;
+    position: relative;
+  }
+  .main {
+    color: #22c55e;
+  }
+  .helper {
+    color: #ca8a04;
+  }
+  .order-option {
+    padding: 5px;
+  }
+  .order-option:hover {
+    background-color: #d4d4d8;
+  }
+  .driver .free {
+    background-color: #16a34a;
+    color: white;
+  }
+  .duplicate-order {
+    width: fit-content;
+    min-width: 10px;
+    min-height: 10px;
+    padding: 0px 8px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-left: 5px;
+    color: white;
+    white-space: nowrap;
+  }
+  td {
+    padding: 0 !important;
+  }
+  .loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid gray;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+  } 
+  @media (max-width: 768px) {
+    .order .options {
+      width: 10%;
+    }
+  }
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+{{ column_left }}
+
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+          <li>
+            <a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="pull-right">
+      <!-- Save -->
+      <button type="submit" form="form" data-toggle="tooltip" title="{{ button_save }}" title="save" class="btn btn-primary">
+          <i class="fa fa-save"></i>
+        </button>
+      </div>
+      <div class="alert alert-success alert-dismissible" style="display: none;"><i class="fa fa-check-circle"></i> <span v-html="success_msg"></span>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+      <div class="alert alert-danger alert-dismissible" style="display: none;"><i class="fa fa-exclamation-circle"></i> <span v-html="error_msg"></span>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+      <form action="{{ action }}" id="form" method="post">
+        <!-- Filter -->
+        <div class="row">
+          <div class="form-group col-md-2">
+            <label class="control-label" for="input-delivery-date">Delivery Date</label>
+            <input type="date" v-model="search.delivery_date" class="form-control">
+          </div>
+          <div class="form-group col-md-1">
+            <label class="control-label" for="input-order-id">Order ID</label>
+            <input v-model="search.order_id" type="text" placeholder="ID" class="form-control">
+          </div>
+          <div class="form-group col-md-2">
+            <label class="control-label" for="input-customer">Customer</label>
+            <input v-model="search.customer" type="text" placeholder="Customer" class="form-control">
+          </div>
+          <div class="form-group col-md-2">
+            <label class="control-label" for="input-delivery-zone">Delivery Zone</label>
+            <select v-model="search.delivery_zone_id" class="form-control">
+              <option value="">-- None --</option>
+              <option v-for="zone in delivery_zones" :value="zone.delivery_zone_id" v-html="zone.name"></option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label class="control-label" for="input-driver">Driver</label>
+            <input v-model="search.driver" type="text" placeholder="DriverA, DriverB" class="form-control">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-5">
+            <div class="panel panel-default" style="max-height: 75vh; overflow: scroll;">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <i class="fa fa-list"></i>
+                  Orders
+                </h3>
+              </div>
+              <table class="table">
+                <tbody class="sortable">
+                  <!-- Orders -->
+                  <tr v-for="order in filteredOrders" :key="order.order_id">
+                    <td><Order :order="order" @duplicate-order="order => selected_order = order" @set-main="setMain"></Order></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="col-md-7">
+              <div class="panel panel-default" style="max-height: 75vh; overflow-y: scroll; overflow-x: hidden;">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-truck"></i>Drivers</h3>
+              </div>
+              <!-- Drivers -->
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px;">
+                <Driver 
+                  v-for="driver in filteredDriverOrders" 
+                  :key="driver.user_id" 
+                  :driver="driver" 
+                  :init-sortable="initSortable"
+                  @duplicate-order="order => selected_order = order"
+                  @set-main="setMain"
+                  @remove="remove"
+                ></Driver>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Hidden Inputs -->
+        <template v-for="(data, i) in saved_data">
+          <input type="hidden" :name="`saved_data[${i}][order_id]`" :value="data.order_id">
+          <input type="hidden" :name="`saved_data[${i}][to_driver_id]`" :value="data.to_driver_id">
+          <input type="hidden" :name="`saved_data[${i}][from_driver_id]`" :value="data.from_driver_id">
+        </template>
+      </form>
+    </div>
+  </div>
+
+  <ChangeDriverModal @confirm="duplicateOrder"></ChangeDriverModal>
+
+  <ConfirmationModal :confirm-title="confirm_title" :confirm-text="confirm_text" :confirm-action="confirm_action"></ConfirmationModal>
+</div>
+
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://SortableJS.github.io/Sortable/Sortable.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.5/axios.min.js" integrity="sha512-01Pe9P3mJM/4c80VuoYEGHlspKGbd9uWQe9HtdLsdTqV0CS1kz8ca44sinVEXEvlZNciMmsAjeEbm5ZxHC7yYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  window.appConfig = {base_url: "{{ base_url }}"}
+</script>
+
+<script type="module">
+  import Driver from '{{ base_url }}/components/driver_admin/driver.js'
+  import Order from '{{ base_url }}/components/driver_admin/order.js'
+  import Changedrivermodal from '{{ base_url }}/components/driver_admin/change_driver_modal.js'
+  import Confirmationmodal from '{{ base_url }}/components/driver_admin/confirmation_modal.js'
+  import Duplicateorder from '{{ base_url }}/components/driver_admin/duplicate_order.js'
+
+  Vue.createApp({
+    components: {
+      Order,
+      Driver,
+      Changedrivermodal,
+      Confirmationmodal,
+      Duplicateorder,
+    },
+    data() {
+      return {
+        selected_driver: {}, 
+        selected_order: {}, 
+        available_orders: [],
+        driver_orders: [],
+        search: {
+          order_id: '',
+          customer: '',
+          delivery_zone_id: '',
+          driver: '',
+          delivery_date: '{{ filter_delivery_date }}',
+        },
+        success_msg: false,
+        error_msg: false,
+        confirm_title: false,
+        confirm_text: false,
+        confirm_action: () => {},
+        saved_data: [],
+        delivery_zones: [],
+      }
+    },
+    watch: {
+      'search.delivery_date': function(newDate, oldDate) {
+        window.location.href = this.getRoute('', { filter_delivery_date: newDate })
+      }
+    },
+    computed: {
+      filteredOrders() {
+        if (this.search.order_id == '' && this.search.customer == '') {
+          return this.available_orders;
+        }
+        let orders = this.available_orders;
+
+        if (this.search.order_id != '') {
+          orders = orders.filter(order => order.order_id == this.search.order_id);
+        }
+        if (this.search.customer != '') {
+          orders = orders.filter(order => order.shipping_firstname.toLowerCase().includes(this.search.customer.toLowerCase()) || order.shipping_lastname.toLowerCase().includes(this.search.customer.toLowerCase()));
+        }
+
+        return orders;
+      },
+      filteredDriverOrders() {
+        if (this.search.order_id == '' && this.search.customer == '' && this.search.driver == '' && this.search.delivery_zone_id == '') {
+          return this.driver_orders;
+        }
+        let drivers = this.driver_orders;
+
+        if (this.search.order_id != '') {
+          drivers = drivers.map(driver => {
+            return {
+              ...driver,
+              orders: driver.orders.filter(order => order.order_id == this.search.order_id)
+            };
+          }).filter(driver => driver.orders.length > 0);
+        }
+        if (this.search.customer != '') {
+          drivers = drivers.map(driver => {
+            return {
+              ...driver,
+              orders: driver.orders.filter(order => order.shipping_firstname.toLowerCase().includes(this.search.customer.toLowerCase()) || order.shipping_lastname.toLowerCase().includes(this.search.customer.toLowerCase()))
+            };
+          }).filter(driver => driver.orders.length > 0);
+        }
+        if (this.search.driver != '') {
+          const driverNames = this.search.driver.split(',').map(name => name.trim().toLowerCase());
+          drivers = drivers.filter(driver => driverNames.some(name => driver.name.toLowerCase().includes(name)));
+        }
+        if (this.search.delivery_zone_id != '') {
+          drivers = drivers.map(driver => {
+            return {
+              ...driver,
+              orders: driver.orders.filter(order => order.delivery_zone_id == this.search.delivery_zone_id)
+            };
+          }).filter(driver => driver.orders.length > 0);
+        }
+        return drivers;
+      },
+    },
+    methods: {
+      changeDriver() {
+        const title = 'Save Driver Changes';
+        const text = `Are you sure you want to save the changes?`;
+        const action = () => this.handleRequest('change_driver', {saved_data: this.saved_data, filter: this.search})
+        
+        this.confirm(title, text, action)
+      },
+      async duplicateOrder() {
+        const driver = this.selected_driver;
+        const order = this.selected_order;
+
+        if (driver.id == order.driver_id) {
+          this.error('Cannot select the same driver.');
+          return;
+        }
+
+        order.loading = true
+        const { data } = await this.handleRequest('duplicate_order', { order_id: order.order_id, driver_id: driver.id, filter: this.search });
+        order.loading = false
+        this.updateDriverOrders(data.order_changed)
+      },
+      setMain(order, driver) {
+        // Set title, text
+        const title = 'Set Main Driver';
+        const text = `Are you sure you want to set <b>${driver?.name}</b> as the <b>Order ${order.order_id}</b>'s main driver?`;
+        // confirm action
+        const action = async () => {
+          order.loading = true
+          const { data } = await this.handleRequest('set_main', { order_id: order.order_id, driver_id: driver?.user_id, filter: this.search })
+          order.loading = false
+          this.updateDriverOrders(data.order_changed)
+        }
+        
+        // Show confirm modal
+        this.confirm(title, text, action);
+      },
+      remove(order, driver) {
+        // Set title, text
+        const title = 'Remove Helper';
+        const text = `Are you sure you want to remove helper <b>${driver?.name}</b> from <b>Order ${order.order_id}</b>?`;
+        // confirm action
+        const action = async () => {
+          order.loading = true
+          const { data } = await this.handleRequest('remove_driver', { order_id: order.order_id, driver_id: driver?.user_id, filter: this.search })
+          order.loading = true
+          this.updateDriverOrders(data.order_changed)
+        }
+        
+        this.confirm(title, text, action);
+      },
+      async handleRequest(route, data) {
+        let redirect = this.getRoute('');
+        try {
+          const response = await axios.post(this.getRoute(route), data);
+          const { success, error } = response.data;
+
+          if (success) {
+            this.success(success)
+          } else {
+            throw new Error(error);
+          }
+
+          return response
+        } catch (error) {
+          this.error(error)
+        }
+      },
+      updateDriverOrders(drivers) {
+        drivers.forEach(driver => {
+          const driver_index = this.driver_orders.findIndex(d => d.user_id == driver.user_id)
+          this.driver_orders[driver_index] = driver
+    
+        })
+      },
+      handleDragDrop(order_id, from_driver_id, to_driver_id) {
+        const existingOrderIndex = this.saved_data.findIndex(data => data.order_id === order_id);
+        if (existingOrderIndex !== -1) {
+          this.saved_data[existingOrderIndex].to_driver_id = to_driver_id;
+        } else {
+          this.saved_data.push({ order_id, from_driver_id, to_driver_id });
+        }
+      },
+      confirm(title, text, action) {
+        this.confirm_title = title;
+        this.confirm_text = text;
+        this.confirm_action = action;
+      },
+      parseData() {
+        this.driver_orders = JSON.parse('{{ driver_orders }}');
+        this.available_orders = JSON.parse('{{ available_orders }}');
+        this.delivery_zones = JSON.parse('{{ delivery_zones }}');
+      },
+      success(msg) {
+        this.success_msg = msg;
+        $('.alert-success').show();
+      },
+      error(msg) {
+        this.error_msg = msg;
+        $('.alert-danger').show();
+      },
+      initSortable() {
+        const self = this;
+        $('.sortable').sortable({
+          scroll: true,
+          animation: 150,
+          group: 'shared',
+          onMove: function (/**Event*/evt, /**Event*/originalEvent) {
+            const order_id = $(evt.dragged).find('[data-order-id]').data('order-id');
+            const from = $(evt.from)
+            const to = $(evt.to)
+            
+            if (to.find(`[data-order-id="${order_id}"]`).length > 0) {
+              return false;
+            } else {
+                self.handleDragDrop(order_id, from.data('driver-id'), to.data('driver-id'));
+            }
+          },
+        });
+      },
+      initSelect2() {
+        const self = this;
+        $('#select-driver').select2({
+          ajax: {
+            url: '/admin/index.php?route=location/driver_admin/autocomplete',
+            dataType: 'json',
+            data(params) {
+              return {
+                user_token: new URLSearchParams(window.location.search).get('user_token'),
+                filter_name: params.term,
+              };
+            },
+            processResults(data) {
+              return {
+                results: data.map(d => ({ id: d.user_id, text: d.name })),
+              };
+            },
+          },
+          dropdownParent: $('#change-driver-modal'),
+        }).on('select2:select', function (e) {
+          self.selected_driver = e.params.data;
+        });
+      },
+      getRoute(route = '', filters = {}, base = false) {
+        const filter = Object.entries(filters).map(([key, value]) => `&${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join('');
+        const baseUrl = base ? `/admin/index.php?route=${route}&user_token={{ user_token }}${filter}` : `/admin/index.php?route=location/driver_admin/${route}&user_token={{ user_token }}${filter}`;
+        return route === '' ? `/admin/index.php?route=location/driver_admin/assign&user_token={{ user_token }}${filter}` : baseUrl;
+      },
+      handleMsg() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const success = urlParams.get('success');
+        const error = urlParams.get('error');
+
+        if (success) {
+          this.success(decodeURIComponent(success));
+        } else if (error) {
+          this.error(decodeURIComponent(error));
+        }
+
+        const url = new URL(window.location.href);
+        url.searchParams.delete('success');
+        url.searchParams.delete('error');
+        window.history.replaceState({}, document.title, url.toString());
+      },
+    },
+    mounted() {
+      this.initSortable();
+      this.initSelect2();
+      this.parseData();
+      this.handleMsg();
+    },
+  }).mount('#content');
+</script>
+
+{{ footer }}

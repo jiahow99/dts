@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Driver</title>
+		<!-- Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.5/axios.min.js" integrity="sha512-01Pe9P3mJM/4c80VuoYEGHlspKGbd9uWQe9HtdLsdTqV0CS1kz8ca44sinVEXEvlZNciMmsAjeEbm5ZxHC7yYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+		<!-- Ripple Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/@material/ripple@14.0.0/dist/mdc.ripple.min.js"></script>
+    <!-- Copy Clipboard -->
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@material/ripple@14.0.0/dist/mdc.ripple.min.css" rel="stylesheet"/> <!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Toast -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" type="text/css" href="/admin/view/stylesheet/dts.css">
+	</head>
+
+	<body class="bg-slate-300">
+		<div id="app">
+      <Layout
+        class="w-screen h-screen overflow-y-scroll" 
+        :tabs="tabs" 
+        :active-tab="activeTab" 
+        :loading="loading" 
+        :checked-orders="[]"
+        :name="'{{ driver['firstname'] }} {{ driver['lastname'] }}'"
+        :toggle-filter="toggleFilter"
+        :has-filter="hasFilter"
+				:logout="getRoute('common/logout', {}, true)"
+        :hide-check-all="true"
+        :home-url="getRoute()"
+        @clear-filter="clearFilter"
+      >
+        <div class="p-2 flex flex-col gap-4">
+          <!-- New -->
+          <DeliveryOrder 
+            v-if="activeTab == 'New'"
+            v-for="order in orders"
+            :key="order.order_id"
+            :order="order"
+            :disable-show-pod="true"
+            :toast="toast"
+            :get-route="getRoute"
+            @lightbox="(image) => toggleLightbox(true, image)"
+            @submit="toggleConfirm(true, order)"
+          ></DeliveryOrder>
+
+          <!-- Completed -->
+          <DeliveryOrder 
+            v-else-if="activeTab == 'Completed'"
+            v-for="order in orders"
+            :key="order.order_id"
+            :order="order"
+            :disable-upload="true"
+            :show-pod="true"
+            :truncate-address="true"
+            :toast="toast"
+            @lightbox="(image) => toggleLightbox(true, image)"
+            @submit="toggleConfirm(true, order)"
+          ></DeliveryOrder>
+          <NoData v-if="orders.length == 0"></NoData>
+
+          <Btn 
+            @click="loadMore" 
+            v-else-if="activeTab == 'Completed' && orders.length != tabs[1].total && !hasFilter" 
+            type="outline" 
+            class="mx-auto"
+          >
+            Load More ...
+          </Btn>
+        </div>
+      </Layout>
+		
+      <!-- Lightbox -->
+      <Transition v-if="showLightbox">
+        <Lightbox :image="selectedImage" @close="toggleLightbox(false)"></Lightbox>
+      </Transition>
+
+      <!-- Confirm shipped modal -->
+      <Transition>
+        <ConfirmShipped 
+          v-if="showConfirm"
+          :order="selectedOrder"
+          @close="toggleConfirm(false)"
+          @confirm="markShipped"
+        ></ConfirmShipped>
+      </Transition>
+
+      <!-- Confirm shipped modal -->
+      <Transition>
+        <FilterModal 
+          v-if="showFilter"
+          :filter-data="filterData"
+          :delivery-zones="deliveryZones"
+          @close="toggleFilter(false)"
+          @apply="handleFilter"
+        ></FilterModal>
+      </Transition>
+    </div>
+	</body>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+  <script>
+    window.appConfig = {base_url: "{{ base_url }}"};
+  </script>
+  
+  <script type="module">
+    import Layout from '{{ base_url }}/extension/module/layout/main.js';
+    import Secondtab from '{{ base_url }}/extension/module/components/second_tab.js';
+    import Loading from '{{ base_url }}/extension/module/components/loading.js';
+    import Order from '{{ base_url }}/extension/module/components/order.js';
+    import Titlemenu from '{{ base_url }}/extension/module/components/title_menu.js';
+    import Ordermodal from '{{ base_url }}/extension/module/components/order_modal.js';
+    import Picklistmodal from '{{ base_url }}/extension/module/components/picklist_modal.js';
+    import Completeordermodal from '{{ base_url }}/extension/module/components/complete_order_modal.js';
+    import Filtermodal from '{{ base_url }}/extension/module/components/filter_modal.js';
+    import Picklist from '{{ base_url }}/extension/module/components/picklist.js';
+    import Deliveryorder from '{{ base_url }}/extension/module/components/delivery_order.js';
+    import Lightbox from '{{ base_url }}/extension/module/components/lightbox.js';
+    import Confirmshipped from '{{ base_url }}/extension/module/components/confirm_shipped.js';
+    import Nodata from '{{ base_url }}/extension/module/components/no_data.js';
+    import Btn from '{{ base_url }}/extension/module/components/btn.js';
+
+    const { createApp, ref, onMounted, defineComponent, computed } = Vue;
+
+    createApp({
+      components: {
+        Layout,
+        Loading, 
+        Deliveryorder,
+        Lightbox,
+        Confirmshipped,
+        Nodata,
+        Filtermodal,
+        Btn,
+      },
+      setup() {
+        const page = ref(1);
+        const limit = ref(2);
+        
+        const orders = ref([]);
+        const selectedOrder = ref({});
+        const loading = ref(false);
+
+        const deliveryZones = ref([]);
+
+        const tabs = ref([
+          {label: 'New', event: () => toggleTab('New'), total: 0,},
+          {label: 'Completed', event: () => toggleTab('Completed'), hideTotal: true},
+        ]);
+
+        const activeTab = ref('New');
+        const orderStatus = ref('pickup');
+
+        const showLightbox = ref(false);
+        const selectedImage = ref('');
+
+        const showConfirm = ref(false);
+
+        const showFilter = ref(false);
+
+        const filterData = ref({
+          doc_no: '',
+          order_id: '',
+          customer: '',
+        })  
+
+        // Toggle tab
+        const toggleTab = (value) => {
+          orders.value = [];
+
+          if (value == 'New') {
+            fetch('pickup');
+          } else if (value == 'Completed') {
+            fetch('shipped')
+          }
+          activeTab.value = value;
+        }
+
+        // Toggle filter modal
+        const toggleFilter = (value) => {
+          showFilter.value = value;
+        }
+
+        // Show toast message
+        const toast = (message, type='success') => {
+          let background = '#16a34a';
+          if (type == 'error') {
+            background = '#de2837';
+          }
+          Toastify({
+            text: message,
+            duration: 3000,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, 
+            style: {
+              background,
+            },
+          }).showToast();
+        }
+
+        // Get base API route
+        const getRoute = (route='', filters={}, base=false) => {
+          let filter = '';
+          for (const [key, value] of Object.entries(filters)) {
+            filter += `&${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+          }
+          
+          if (route == '') {
+            return '/admin/index.php?route=extension/module/driver&user_token={{ user_token }}' + filter;
+          }
+
+          let url = '';
+          if (base) {
+            url = `/admin/index.php?route=${route}&user_token={{ user_token }}` + filter;
+          } else {
+            url = `/admin/index.php?route=extension/module/driver/${route}&user_token={{ user_token }}` + filter;
+          }
+
+          return url;
+        }
+
+        // Fetch
+        const fetch = async (status, reset = false) => {
+          loading.value = true;
+
+          let tabChanged = orderStatus.value != status;
+          orderStatus.value = status;
+
+          if (tabChanged || reset) {
+            orders.value = [];
+            page.value = 1;
+          }
+
+          try {
+            const url = getRoute('orders');
+            const { data } = await axios.get(url, {
+              params: {
+                status: orderStatus.value,
+                ...filterData.value,
+                page: page.value,
+                limit: limit.value,
+              }
+            })
+
+            orders.value = orders.value.concat(data.orders);
+            deliveryZones.value = data.delivery_zones;
+
+            tabs.value[0].total = data.total['new'];
+            tabs.value[1].total = data.total['completed'];
+
+          } catch (e) {
+            toast(e, 'error');
+          } finally {
+            loading.value = false;
+          }
+        }
+
+        // Lightbox
+        const toggleLightbox = (value, image) => {
+          selectedImage.value = image;
+          showLightbox.value = value;
+        }
+
+        // Toggle confirm submit
+        const toggleConfirm = (value, order=null) => {
+          if (order) {
+            selectedOrder.value = order;
+          }
+          showConfirm.value = value;
+        }
+
+        // Mark order as shipped
+        const markShipped = async () => {
+          loading.value = true;
+          toggleConfirm(false);
+
+          const folder = 'pod';
+          const path = `${folder}/order_${selectedOrder.value.order_id}`;
+          const folder_url = getRoute('common/filemanager/folder', {directory: folder}, true);
+          const upload_url = getRoute('common/filemanager/upload', {directory: path}, true);
+
+          try {
+            const formData = new FormData();
+            const order = orders.value.find(x => x.order_id == selectedOrder.value.order_id);
+            
+            const files = [...order.pods];
+            for (let i = 0; i < files.length; i++) {
+              const file = files[i];
+              formData.append('file[]', file);
+            }
+
+            // Create folder for seledtedOrder's pod
+            const folder_req = await axios.post(folder_url, {folder: `order_${order.order_id}`});
+
+            // Upload image
+            const upload_req = await axios.post(upload_url, formData);
+            const paths = files.map(file => {
+              return `catalog/${path}/${file.name}`;
+            })
+
+            // Mark as 'shipped'
+            const url = getRoute('markShipped');
+            const { data } = await axios.post(url, {
+              order_id: order.order_id,
+              images: paths,
+            })
+
+            if (data.success) {
+              toast(data.success);
+              toggleTab('Completed');
+            }
+            if (data.error) {
+              toast(data.error, 'error');
+            }
+
+          } catch (e) {
+            console.error(e)
+            toast(e, 'error');
+          } finally {
+            fetch('pickup');
+          }        
+        }
+
+        // Filter 
+        const handleFilter = () => {
+          toggleFilter(false)
+          fetch(orderStatus.value, true)
+        }
+
+        // Has apply filter
+        const hasFilter = computed(() => {
+          return Object.keys(filterData.value).some((key) => {
+            const value = filterData.value[key];
+            return value != '';
+          })
+        })
+
+        // Clear filter
+        const clearFilter = () => {
+          for (const key in filterData.value) {
+            if (filterData.value.hasOwnProperty(key)) {
+              filterData.value[key] = ''; 
+            }
+          }
+          fetch(orderStatus.value, true)
+        }
+
+        // Load more
+        const loadMore = () => {
+          page.value += 1;
+          fetch(orderStatus.value);
+        }
+
+        // Mounted
+        onMounted(() => {
+          fetch('pickup');
+        })
+        
+        return {
+          tabs,
+          activeTab,
+          orders,
+          loading,
+          showLightbox,
+          selectedImage,
+          toggleLightbox,
+          toggleConfirm,
+          markShipped,
+          showConfirm,
+          selectedOrder,
+          toggleFilter,
+          showFilter,
+          filterData,
+          deliveryZones,
+          getRoute,
+          hasFilter,
+          clearFilter,
+          handleFilter,
+          toast,
+          loadMore,
+        };
+      },
+    }).mount("#app");
+
+  </script>
+
+</html>

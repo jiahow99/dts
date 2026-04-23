@@ -1,0 +1,22 @@
+.bg-primary {
+    background-color: #2b3392 !important;
+    color: white !important;
+}
+.text-primary {
+    color: #2b3392 !important;
+}
+.border-primary {
+    border-color: #2b3392 !important;
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+body * {
+    font-family: "Poppins", sans-serif;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s ease-in-out;
+}
+.fade-enter, .fade-leave-to /* .v-leave-active in <2.1.8 */ {
+    opacity: 0;
+}

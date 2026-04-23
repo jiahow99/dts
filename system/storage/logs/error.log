@@ -1,0 +1,368 @@
+2026-04-23 3:24:46 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:24:46 - PHP Unknown:  Return type of Twig\Node\Node::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 161
+2026-04-23 3:24:46 - PHP Unknown:  Return type of Twig\Node\Node::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 166
+2026-04-23 3:24:50 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:24:50 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:24:50 - PHP Unknown:  Return type of Twig\Node\Node::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 161
+2026-04-23 3:24:50 - PHP Unknown:  Return type of Twig\Node\Node::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 166
+2026-04-23 3:24:52 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:24:53 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:24:55 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:25:23 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:25:25 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:25:27 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:25:45 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:25:45 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:25:45 - PHP Unknown:  Return type of Twig\Node\Node::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 161
+2026-04-23 3:25:45 - PHP Unknown:  Return type of Twig\Node\Node::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 166
+2026-04-23 3:26:00 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:26:10 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:26:10 - PHP Unknown:  Creation of dynamic property mysqli::$report_mode is deprecated in /Users/jiahao/Herd/dts/system/library/db/mysqli.php on line 15
+2026-04-23 3:26:10 - PHP Unknown:  Creation of dynamic property Proxy::$database is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:10 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:10 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:10 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:10 - PHP Unknown:  Creation of dynamic property mysqli::$report_mode is deprecated in /Users/jiahao/Herd/dts/system/library/db/mysqli.php on line 15
+2026-04-23 3:26:10 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:26:10 - PHP Unknown:  Creation of dynamic property mysqli::$report_mode is deprecated in /Users/jiahao/Herd/dts/system/library/db/mysqli.php on line 15
+2026-04-23 3:26:11 - PHP Unknown:  Return type of Twig\Node\Node::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 161
+2026-04-23 3:26:11 - PHP Unknown:  Return type of Twig\Node\Node::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 166
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property mysqli::$report_mode is deprecated in /Users/jiahao/Herd/dts/system/library/db/mysqli.php on line 15
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Session\DB::$db is deprecated in /Users/jiahao/Herd/dts/system/library/session/db.php on line 8
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTranslations is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  mysqli::real_escape_string(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/jiahao/Herd/dts/system/library/db/mysqli.php on line 53
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getLanguage is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getLanguages is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Automatic conversion of false to array is deprecated in /Users/jiahao/Herd/dts/catalog/controller/startup/startup.php on line 103
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Customer::$config is deprecated in /Users/jiahao/Herd/dts/system/library/cart/customer.php on line 14
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Customer::$db is deprecated in /Users/jiahao/Herd/dts/system/library/cart/customer.php on line 15
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Customer::$request is deprecated in /Users/jiahao/Herd/dts/system/library/cart/customer.php on line 16
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Customer::$session is deprecated in /Users/jiahao/Herd/dts/system/library/cart/customer.php on line 17
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getCurrencyByCode is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getCurrencies is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Currency::$db is deprecated in /Users/jiahao/Herd/dts/system/library/cart/currency.php on line 7
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Currency::$language is deprecated in /Users/jiahao/Herd/dts/system/library/cart/currency.php on line 8
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Tax::$config is deprecated in /Users/jiahao/Herd/dts/system/library/cart/tax.php on line 7
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Tax::$db is deprecated in /Users/jiahao/Herd/dts/system/library/cart/tax.php on line 8
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Weight::$db is deprecated in /Users/jiahao/Herd/dts/system/library/cart/weight.php on line 7
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Weight::$config is deprecated in /Users/jiahao/Herd/dts/system/library/cart/weight.php on line 8
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Length::$db is deprecated in /Users/jiahao/Herd/dts/system/library/cart/length.php on line 7
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Length::$config is deprecated in /Users/jiahao/Herd/dts/system/library/cart/length.php on line 8
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Cart::$config is deprecated in /Users/jiahao/Herd/dts/system/library/cart/cart.php on line 7
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Cart::$customer is deprecated in /Users/jiahao/Herd/dts/system/library/cart/cart.php on line 8
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Cart::$session is deprecated in /Users/jiahao/Herd/dts/system/library/cart/cart.php on line 9
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Cart::$db is deprecated in /Users/jiahao/Herd/dts/system/library/cart/cart.php on line 10
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Cart::$tax is deprecated in /Users/jiahao/Herd/dts/system/library/cart/cart.php on line 11
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Cart\Cart::$weight is deprecated in /Users/jiahao/Herd/dts/system/library/cart/cart.php on line 12
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getEvents is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getLayout is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getLayoutModules is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getModule is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTheme is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Return type of Twig\Node\Node::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 161
+2026-04-23 3:26:11 - PHP Unknown:  Return type of Twig\Node\Node::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 166
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getBanner is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$resize is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$updateViewed is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getProduct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getProducts is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getProductSpecials is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getLatestProducts is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getPopularProducts is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getBestSellerProducts is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getProductAttributes is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getProductOptions is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getProductDiscounts is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getProductImages is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getProductRelated is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getProductLayoutId is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getCategories is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTotalProducts is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getProfile is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getProfiles is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTotalProductSpecials is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$checkProductCategory is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in /Users/jiahao/Herd/dts/catalog/model/catalog/product.php on line 45
+2026-04-23 3:26:11 - PHP Unknown:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in /Users/jiahao/Herd/dts/catalog/model/catalog/product.php on line 45
+2026-04-23 3:26:11 - PHP Unknown:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in /Users/jiahao/Herd/dts/catalog/model/catalog/product.php on line 45
+2026-04-23 3:26:11 - PHP Unknown:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in /Users/jiahao/Herd/dts/catalog/model/catalog/product.php on line 45
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getInformation is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getInformations is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getInformationLayoutId is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getExtensions is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$confirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$unconfirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getCoupon is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$confirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$unconfirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTotalCouponHistoriesByCoupon is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTotalCouponHistoriesByCustomerId is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$confirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$unconfirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$addVoucher is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$disableVoucher is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getVoucher is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$confirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$unconfirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$addUpload is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getUploadByCode is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getCategory is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getCategories is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getCategoryFilters is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getCategoryLayoutId is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getTotalCategoriesByCategoryId is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getSetting is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$getSettingValue is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:11 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Request::$request is deprecated in /Users/jiahao/Herd/dts/system/library/request.php on line 26
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property mysqli::$report_mode is deprecated in /Users/jiahao/Herd/dts/system/library/db/mysqli.php on line 15
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Session\DB::$db is deprecated in /Users/jiahao/Herd/dts/system/library/session/db.php on line 8
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTranslations is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  mysqli::real_escape_string(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/jiahao/Herd/dts/system/library/db/mysqli.php on line 53
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getLanguage is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getLanguages is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Customer::$config is deprecated in /Users/jiahao/Herd/dts/system/library/cart/customer.php on line 14
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Customer::$db is deprecated in /Users/jiahao/Herd/dts/system/library/cart/customer.php on line 15
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Customer::$request is deprecated in /Users/jiahao/Herd/dts/system/library/cart/customer.php on line 16
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Customer::$session is deprecated in /Users/jiahao/Herd/dts/system/library/cart/customer.php on line 17
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getCurrencyByCode is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getCurrencies is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Currency::$db is deprecated in /Users/jiahao/Herd/dts/system/library/cart/currency.php on line 7
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Currency::$language is deprecated in /Users/jiahao/Herd/dts/system/library/cart/currency.php on line 8
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Tax::$config is deprecated in /Users/jiahao/Herd/dts/system/library/cart/tax.php on line 7
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Tax::$db is deprecated in /Users/jiahao/Herd/dts/system/library/cart/tax.php on line 8
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Weight::$db is deprecated in /Users/jiahao/Herd/dts/system/library/cart/weight.php on line 7
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Weight::$config is deprecated in /Users/jiahao/Herd/dts/system/library/cart/weight.php on line 8
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Length::$db is deprecated in /Users/jiahao/Herd/dts/system/library/cart/length.php on line 7
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Length::$config is deprecated in /Users/jiahao/Herd/dts/system/library/cart/length.php on line 8
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Cart::$config is deprecated in /Users/jiahao/Herd/dts/system/library/cart/cart.php on line 7
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Cart::$customer is deprecated in /Users/jiahao/Herd/dts/system/library/cart/cart.php on line 8
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Cart::$session is deprecated in /Users/jiahao/Herd/dts/system/library/cart/cart.php on line 9
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Cart::$db is deprecated in /Users/jiahao/Herd/dts/system/library/cart/cart.php on line 10
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Cart::$tax is deprecated in /Users/jiahao/Herd/dts/system/library/cart/cart.php on line 11
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Cart\Cart::$weight is deprecated in /Users/jiahao/Herd/dts/system/library/cart/cart.php on line 12
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getEvents is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Users/jiahao/Herd/dts/system/engine/action.php on line 65
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getLayout is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getLayoutModules is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getModule is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTheme is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getInformation is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getInformations is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getInformationLayoutId is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getExtensions is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$confirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$unconfirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getCoupon is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$confirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$unconfirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTotalCouponHistoriesByCoupon is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTotalCouponHistoriesByCustomerId is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$confirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$unconfirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$addVoucher is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$disableVoucher is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getVoucher is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$confirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$unconfirm is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTotal is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$resize is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$addUpload is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getUploadByCode is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getCategory is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getCategories is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getCategoryFilters is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getCategoryLayoutId is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTotalCategoriesByCategoryId is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$updateViewed is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getProduct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getProducts is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getProductSpecials is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getLatestProducts is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getPopularProducts is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getBestSellerProducts is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getProductAttributes is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getProductOptions is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getProductDiscounts is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getProductImages is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getProductRelated is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getProductLayoutId is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getCategories is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTotalProducts is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getProfile is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getProfiles is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getTotalProductSpecials is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$checkProductCategory is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getSetting is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$getSettingValue is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__construct is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__get is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Creation of dynamic property Proxy::$__set is deprecated in /Users/jiahao/Herd/dts/system/engine/proxy.php on line 30
+2026-04-23 3:26:19 - PHP Unknown:  Return type of Twig\Node\Node::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 161
+2026-04-23 3:26:19 - PHP Unknown:  Return type of Twig\Node\Node::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 166
+2026-04-23 3:26:28 - PHP Unknown:  mysqli::real_escape_string(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/jiahao/Herd/dts/system/library/db/mysqli.php on line 53
+2026-04-23 3:26:28 - PHP Unknown:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Users/jiahao/Herd/dts/system/engine/action.php on line 65
+2026-04-23 3:26:28 - PHP Unknown:  Return type of Twig\Node\Node::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 161
+2026-04-23 3:26:28 - PHP Unknown:  Return type of Twig\Node\Node::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 166
+2026-04-23 3:26:32 - PHP Unknown:  mysqli::real_escape_string(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/jiahao/Herd/dts/system/library/db/mysqli.php on line 53
+2026-04-23 3:26:32 - PHP Unknown:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Users/jiahao/Herd/dts/system/engine/action.php on line 65
+2026-04-23 3:26:35 - PHP Unknown:  mysqli::real_escape_string(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/jiahao/Herd/dts/system/library/db/mysqli.php on line 53
+2026-04-23 3:26:35 - PHP Unknown:  Return type of Twig\Node\Node::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 161
+2026-04-23 3:26:35 - PHP Unknown:  Return type of Twig\Node\Node::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /Users/jiahao/Herd/dts/system/storage/vendor/twig/twig/src/Node/Node.php on line 166
+2026-04-23 3:26:35 - PHP Unknown:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in /Users/jiahao/Herd/dts/catalog/model/catalog/product.php on line 45
+2026-04-23 3:26:35 - PHP Unknown:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in /Users/jiahao/Herd/dts/catalog/model/catalog/product.php on line 45
+2026-04-23 3:26:35 - PHP Unknown:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in /Users/jiahao/Herd/dts/catalog/model/catalog/product.php on line 45
+2026-04-23 3:26:35 - PHP Unknown:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in /Users/jiahao/Herd/dts/catalog/model/catalog/product.php on line 45
+2026-04-23 3:30:09 - PHP Unknown:  mysqli::real_escape_string(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/jiahao/Herd/dts/system/library/db/mysqli.php on line 53
+2026-04-23 3:30:09 - PHP Unknown:  Automatic conversion of false to array is deprecated in /Users/jiahao/Herd/dts/catalog/controller/startup/startup.php on line 103
+2026-04-23 3:30:09 - PHP Unknown:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in /Users/jiahao/Herd/dts/catalog/model/catalog/product.php on line 45
+2026-04-23 3:30:09 - PHP Unknown:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in /Users/jiahao/Herd/dts/catalog/model/catalog/product.php on line 45
+2026-04-23 3:30:09 - PHP Unknown:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in /Users/jiahao/Herd/dts/catalog/model/catalog/product.php on line 45
+2026-04-23 3:30:09 - PHP Unknown:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in /Users/jiahao/Herd/dts/catalog/model/catalog/product.php on line 45

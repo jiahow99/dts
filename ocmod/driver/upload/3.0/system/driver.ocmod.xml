@@ -1,0 +1,290 @@
+<modification>
+    <name>Add Driver and Delivery Zone to Admin Panel</name>
+    <version>1.0</version>
+    <author>Mices Technology</author>
+
+    <!-- Migration -->
+    <file path="admin/controller/tool/migration.php">
+        <operation>
+            <search><![CDATA[
+                $this->install();
+            ]]></search>
+            <add position="before"><![CDATA[
+				$order_table_delivery_zone_column = $this->db->query("SHOW COLUMNS FROM " . DB_PREFIX . "order LIKE 'delivery_zone_id'");
+				if ($order_table_delivery_zone_column->num_rows == 0) {
+                    $this->db->query("ALTER TABLE `" . DB_PREFIX . "order` ADD COLUMN delivery_zone_id INT(11) NULL AFTER `shipping_zone_id`");
+                    $this->db->query("ALTER TABLE `" . DB_PREFIX . "order` ADD CONSTRAINT `fk_delivery_zone_id` FOREIGN KEY (`delivery_zone_id`) REFERENCES `" . DB_PREFIX . "delivery_zone` (`delivery_zone_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;");
+                }
+                
+                $order_table_driver_id_column = $this->db->query("SHOW COLUMNS FROM " . DB_PREFIX . "order LIKE 'driver_id'");
+                if ($order_table_driver_id_column->num_rows == 0) {
+                    $this->db->query("ALTER TABLE " . DB_PREFIX . "order ADD COLUMN driver_id INT(11) NULL AFTER `delivery_zone_id`");
+                    $this->db->query("ALTER TABLE `" . DB_PREFIX . "order` ADD CONSTRAINT `fk_driver_id` FOREIGN KEY (`driver_id`) REFERENCES `" . DB_PREFIX . "user` (`user_id`) ON DELETE RESTRICT ON UPDATE CASCADE;");
+                }
+
+                // Create delivery_zone table
+                $delivery_zone_query = $this->db->query("SHOW TABLES LIKE '" . DB_PREFIX . "delivery_zone'");
+                if (!$delivery_zone_query->num_rows) {
+                    $this->db->query("
+                        CREATE TABLE `" . DB_PREFIX . "delivery_zone` (
+                            `delivery_zone_id` INT(11) NOT NULL AUTO_INCREMENT,
+                            `name` VARCHAR(255) NOT NULL,
+                            `user_id` INT(11) NOT NULL,
+                            PRIMARY KEY (`delivery_zone_id`)
+                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci
+                    ");
+                }
+
+                // Add delivery_zone_id column to address table
+                $customer_query = $this->db->query("SHOW COLUMNS FROM `" . DB_PREFIX . "address` LIKE 'delivery_zone_id'");
+                if ($customer_query->num_rows == 0) {
+                    $this->db->query("ALTER TABLE `" . DB_PREFIX . "address` ADD `delivery_zone_id` INT(11) NOT NULL AFTER `zone_id`");
+                    $this->db->query("ALTER TABLE `" . DB_PREFIX . "address` ADD CONSTRAINT `fk_delivery_zone_id` FOREIGN KEY (`delivery_zone_id`) REFERENCES `" . DB_PREFIX . "address` (`delivery_zone_id`) ON DELETE CASCADE ON UPDATE CASCADE");
+                }
+
+                // Add Photo Of Delivery (POD) table
+                if (!$this->db->query("SHOW TABLES LIKE '" . DB_PREFIX . "order_pod'")->num_rows) {
+                    $this->db->query("
+                        CREATE TABLE `" . DB_PREFIX . "order_pod` (
+                            `order_pod_id` INT(11) NOT NULL AUTO_INCREMENT,
+                            `order_id` INT(11) NOT NULL,
+                            `image` VARCHAR(255) NOT NULL,
+                            PRIMARY KEY (`order_pod_id`)
+                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci
+                    ");
+                    $this->db->query("ALTER TABLE `" . DB_PREFIX . "order_pod` ADD INDEX `idx_order_id` (`order_id`)");
+                }
+
+                // Add created_at column to order_pod table
+                if (!$this->db->query("SHOW COLUMNS FROM `" . DB_PREFIX . "order_pod` LIKE 'created_at'")->num_rows) {
+                    $this->db->query("ALTER TABLE `" . DB_PREFIX . "order_pod` ADD `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `image`");
+                }
+            ]]></add>
+        </operation>
+    </file>
+
+    <!-- Menu -->
+    <file path="admin/controller/common/column_left.php">
+        <operation>
+            <search><![CDATA[
+                if ($this->user->hasPermission('access', 'setting/setting')) {
+            ]]></search>
+            <add position="after" offset="7"><![CDATA[
+				$system[] = array(
+                    'name'	   => $this->language->get('text_delivery_zone'),
+                    'href'     => $this->url->link('location/delivery_zone', 'user_token=' . $this->session->data['user_token'], true),
+                    'children' => [],
+				);
+            ]]></add>
+        </operation>
+        <!-- Driver Admin -->
+        <operation>
+            <search><![CDATA[
+                if ($this->user->hasPermission('access', 'marketplace/modification')) {
+            ]]></search>
+            <add position="before"><![CDATA[
+                // Driver admin
+                if ($this->user->hasPermission('access', 'location/driver_admin')) {
+                    $data['menus'][] = array(
+                        'id'       => 'menu-driver-admin',
+                        'icon'	   => 'fa-truck',
+                        'name'	   => $this->language->get('text_driver_admin'),
+                        'href'     => $this->url->link('location/driver_admin', 'user_token=' . $this->session->data['user_token'], true),
+                        'children' => array()
+                    );
+                }
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/en-gb/common/column_left.php">
+        <operation>
+            <search><![CDATA[
+                $_['text_other_status']         = 'Other Statuses';
+            ]]></search>
+            <add position="after"><![CDATA[
+                $_['text_drivers'] = 'Drivers';
+                $_['text_delivery_zone'] = 'Delivery Zones';
+                $_['text_driver_admin'] = 'Driver Admin';
+            ]]></add>
+        </operation>
+    </file>
+
+    <!-- Customer Add - add delivery zone -->
+    <file path="admin/model/customer/customer.php">
+        <operation>
+            <search index="1"><![CDATA[
+                $this->db->query("UPDATE " . DB_PREFIX . "customer SET address_id = '" . (int)$address_id . "' WHERE customer_id = '" . (int)$customer_id . "'");
+            ]]></search>
+            <add position="after" offset="1"><![CDATA[
+                if (isset($address['delivery_zone_id'])) {
+					$this->db->query("UPDATE " . DB_PREFIX . "address SET delivery_zone_id = '" . (int)$address['delivery_zone_id'] . "' WHERE address_id = '" . (int)$address_id . "'");
+				}
+            ]]></add>
+        </operation>
+        <operation error="log">
+            <search>
+                <![CDATA['customer_id'    => $address_query->row['customer_id'],]]>
+            </search>
+            <add position="after">
+                <![CDATA[
+            'delivery_zone_id'     => $address_query->row['delivery_zone_id'],
+                ]]>
+            </add>
+        </operation>
+    </file>
+    <file path="admin/controller/customer/customer.php">
+        <operation>
+            <search><![CDATA[
+                $this->response->setOutput($this->load->view('customer/customer_form', $data));
+            ]]></search>
+            <add position="before"><![CDATA[
+                $this->load->model('location/delivery_zone');
+                $data['delivery_zones'] = $this->model_location_delivery_zone->getDeliveryZones();
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                foreach ($this->request->post['address'] as $key => $value) {
+            ]]></search>
+            <add position="after"><![CDATA[
+                if ($value['ac_branch_id'] && !$value['delivery_zone_id']) {
+					$this->error['address'][$key]['delivery_zone'] = $this->language->get('error_delivery_zone');
+				}
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/customer/customer_form.twig">
+        <operation>
+            <search><![CDATA[
+                <input type="hidden" name="address[{{ address_row }}][address_id]" value="{{ address.address_id }}" />
+            ]]></search>
+            <add position="after"><![CDATA[
+                <div class="{% if address.ac_branch_id %}required{% endif %} form-group">
+                    <label class="col-sm-2 control-label" for="input-delivery-zone{{ address_row }}">{{ entry_delivery_zone }}</label>
+                    <div class="col-sm-10">
+                        <select name="address[{{ address_row }}][delivery_zone_id]" id="input-delivery-zone{{ address_row }}" class="form-control">
+                        <option value="">{{ text_select }}</option>
+                        {% for zone in delivery_zones %}
+                            {% if address.delivery_zone_id == zone.delivery_zone_id %}
+                              <option selected="selected" value="{{ zone.delivery_zone_id }}">{{ zone.name }}</option>
+                            {% else %}
+                              <option value="{{ zone.delivery_zone_id }}">{{ zone.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                        </select>
+                        {% if error_address[address_row].delivery_zone %}
+                          <div class="text-danger">{{ error_address[address_row].delivery_zone }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                html += '  <input type="hidden" name="address[' + address_row + '][address_id]" value="" />';
+            ]]></search>
+            <add position="after"><![CDATA[
+                html += '  <div class="form-group required">';
+                html += '    <label class="col-sm-2 control-label" for="input-delivery-zone' + address_row + '">{{ entry_delivery_zone }}</label>';
+                html += '    <div class="col-sm-10"><select name="address[' + address_row + '][delivery_zone_id]" id="input-delivery-zone' + address_row + '" class="form-control">';
+                html += '<option value="">{{ text_select }}</option>';
+                {% for zone in delivery_zones %}
+                html += '<option value="{{ zone.delivery_zone_id }}">{{ zone.name }}</option>';
+                {% endfor %}
+                html += '</select></div>';
+                html += '  </div>';
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/en-gb/customer/customer.php">
+        <operation>
+            <search><![CDATA[
+                $_['entry_date_added']          = 'Date Added';
+            ]]></search>
+            <add position="after"><![CDATA[
+                $_['entry_delivery_zone']          = 'Delivery Zone';
+                $_['error_delivery_zone']          = 'Delivery Zone Required !';
+            ]]></add>
+        </operation>
+    </file>
+
+    <!-- Address model - getAddress return delivery_zone_id -->
+    <file path="catalog/model/account/address.php">
+        <operation>
+            <search><![CDATA[
+                'custom_field'   => json_decode($address_query->row['custom_field'], true)
+            ]]></search>
+            <add position="before"><![CDATA[
+                'delivery_zone_id' => $address_query->row['delivery_zone_id'],
+            ]]></add>
+        </operation>
+    </file>
+    
+    <file path="catalog/model/journal3/checkout.php">
+        <!-- Set delivery_zone_id when create order -->
+        <operation>
+            <search><![CDATA[
+                $data = array_replace($data, $this->get_address('shipping'));
+            ]]></search>
+            <add position="after"><![CDATA[
+                // deivery zone
+                if (isset($this->session->data['shipping_address']['address_id'])) {
+                    $this->load->model('account/address');
+
+                    $address_id = $this->session->data['shipping_address']['address_id'];
+                    $delivery_zone = $this->model_account_address->getAddress($address_id);
+                    $driver = $this->db->query("SELECT user_id FROM `" . DB_PREFIX . "delivery_zone` WHERE delivery_zone_id = '" . (int)$delivery_zone['delivery_zone_id'] . "'");
+
+					$data['delivery_zone_id'] = $delivery_zone['delivery_zone_id'];
+                    $data['driver_id'] = $driver->row['user_id'];
+                }
+            ]]></add>
+        </operation>
+    </file>
+    
+    <file path="catalog/model/journal3/order.php">
+        <!-- Set delivery_zone_id when create order -->
+        <operation>
+            <search><![CDATA[
+                shipping_method = '" . $this->db->escape($data['shipping_method']) . "',
+            ]]></search>
+            <add position="after"><![CDATA[
+                delivery_zone_id = '" . (int)$data['delivery_zone_id'] . "',
+                driver_id = '" . (int)$data['driver_id'] . "', 
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/model/sale/order.php">
+        <!-- Create Proof Of Delivery (POD) -->
+        <operation>
+            <search><![CDATA[
+                public function getTotalEmailsByProductsOrdered($products) {
+            ]]></search>
+            <add position="before"><![CDATA[
+                public function createPod($data) {
+		            $this->db->query("INSERT INTO `" . DB_PREFIX . "order_pod` (`order_id`, `image`) VALUES ('" . (int)$data['order_id'] . "', '" . $this->db->escape($data['image']) . "')");
+                }
+            ]]></add>
+        </operation>
+
+        <!-- Get Proof Of Delivery (POD) -->
+        <operation>
+            <search><![CDATA[
+                public function getTotalEmailsByProductsOrdered($products) {
+            ]]></search>
+            <add position="before"><![CDATA[
+                public function getPod($order_id) {
+		            return $this->db->query("SELECT * FROM `" . DB_PREFIX . "order_pod` WHERE order_id = '" . (int)$order_id . "'")->rows;
+                }
+            ]]></add>
+        </operation>
+
+
+    </file>
+
+</modification>
+
+    
+
+
