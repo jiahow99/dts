@@ -174,10 +174,11 @@ createApp({
         page.value = 1;
       }
 
+      const now = new Date();
       const url = getRoute("orders", {
         status,
         ...filterData.value,
-        delivery_date: new Date().toISOString().split('T')[0],
+        delivery_date: `${String(now.getMonth() + 1).padStart(2, "0")}/${String(now.getDate()).padStart(2, "0")}/${now.getFullYear()}`,
         page: page.value,
         limit: limit.value,
       });
