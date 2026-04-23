@@ -4,7 +4,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   build: {
-    outDir: '../../../dist/distribution_center',
+    outDir: '../../../../dist/distribution_center',
     emptyOutDir: true,
     rollupOptions: {
       input: './javascript/distribution_center.js',
