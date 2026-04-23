@@ -9,6 +9,7 @@ return array(
 			'admin/view/stylesheet/dts.css',
 			'admin/view/template/extension/module/components/*',
 			'admin/view/template/extension/module/layout/*',
+			'admin/view/dist/distribution_center/*',
 		),
 		'1.5' => array(
 
