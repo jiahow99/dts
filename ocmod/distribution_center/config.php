@@ -10,6 +10,7 @@ return array(
 			'admin/view/template/extension/module/components/*',
 			'admin/view/template/extension/module/layout/*',
 			'admin/view/dist/distribution_center/*',
+			'admin/view/template/extension/module/mixins/useDc.js'
 		),
 		'1.5' => array(
 
